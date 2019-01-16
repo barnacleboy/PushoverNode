@@ -1,0 +1,30 @@
+﻿{
+  "PackageFormatVersion": "1.0",
+  "Assembly": "PushoverNode.dll",
+  "DependentFiles": [
+    "LogicModule.Nodes.Helpers.dll",
+	"LogicModule.ObjectModel.dll"
+  ],
+  "Version": "1.0.0",
+  "Author": "Philipp Maihart", 
+  "Copyright": "Philipp Maihart",
+  "DeveloperId": "PMLABS",
+  "PackageId": "D318847B-0426-4C35-8300-6CB07A256E39",
+  "Nodes": [
+    {
+      "Type": "PushoverNode.NotificationNode",
+      "Name": {
+        "en": "Push Notification",
+        "de": "Benachrichtigung senden"
+      },
+      "IsConverter": false,
+      "Category": "Node",
+      "DefaultIcon": "icons/notification.png",
+      "HelpTooltip": {
+        "en": "Logic node to send push notifications via Pushover.",
+        "de": "Logikbaustein zum Senden von Benachrichtigungen via Pushover."
+      },
+      "HelpFileReference": null
+    }
+  ]
+}
