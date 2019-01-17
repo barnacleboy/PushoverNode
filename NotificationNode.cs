@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
+using System.Net.Security;
 using LogicModule.Nodes.Helpers;
 using LogicModule.ObjectModel;
 using LogicModule.ObjectModel.TypeSystem;
@@ -15,6 +16,8 @@ namespace PushoverNode
             : base(context)
         {
             context.ThrowIfNull("context");
+
+            this.SetupIgnoreSSLTrust();
 
             var typeService = context.GetService<ITypeService>();
 
@@ -76,6 +79,15 @@ namespace PushoverNode
             {
                 return this.Message;
             }
+        }
+
+        private void SetupIgnoreSSLTrust()
+        {
+            ServicePointManager.ServerCertificateValidationCallback =
+                new RemoteCertificateValidationCallback(
+                    delegate
+                    { return true; }
+                );
         }
     }
 }
